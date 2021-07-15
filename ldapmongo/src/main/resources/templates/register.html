@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Add Dogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body>
+<div class="container my-5">
+  <h3> Register for Dogs</h3>
+  <div class="card">
+    <div class="card-body">
+      <div class="col-md-10">
+        <form action="#" th:action="@{/register}" method="post" th:object="${dog}">
+        <div class="row">
+
+            <label> Enter id for the Dog : </label>
+            <input type="text" th:field="*{id}" /><br/>
+
+            <label> Select Breed of the Dog :</label>
+            <select th:field="*{Breed}">
+                <option th:each="p : ${listBreeds}" th:value="${p}" th:text="${p}" />
+            </select>
+            <br/>
+            <label> Select Country :</label>
+            <select th:field="*{Country}">
+                <option th:each="p : ${listCountries}" th:value="${p}" th:text="${p}" />
+            </select>
+            </h5>
+        </div>
+            <br/>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
